@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Online Banking Login — VaultGreen Bank</title>
+  <meta name="description" content="Secure login to VaultGreen Bank Online Banking. Access your accounts, transfer money, and manage your finances."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css"/>
+</head>
+<body>
+
+  <!-- LEFT PANEL — visual / brand -->
+  <aside class="panel-left">
+
+    <!-- animated background layers -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- brand -->
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">V</div>
+      <div>
+        <span class="brand-name">VaultGreen Bank</span>
+        <span class="brand-tag">International Banking Group</span>
+      </div>
+    </a>
+
+    <!-- hero visual -->
+    <div class="panel-visual">
+
+      <!-- bank card mockup -->
+      <div class="card-3d">
+        <div class="card-inner">
+          <!-- FRONT -->
+          <div class="card-face card-front">
+            <div class="card-shimmer"></div>
+            <div class="card-top-row">
+              <div class="card-brand-small">VaultGreen</div>
+              <div class="card-type">PREMIUM</div>
+            </div>
+            <div class="chip-wrap">
+              <div class="chip">
+                <div class="chip-line h"></div>
+                <div class="chip-line v"></div>
+              </div>
+              <div class="nfc-icon">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="card-pan">4785 •••• •••• 2291</div>
+            <div class="card-footer-row">
+              <div>
+                <div class="card-label-sm">CARD HOLDER</div>
+                <div class="card-holder">J. MENSAH</div>
+              </div>
+              <div>
+                <div class="card-label-sm">EXPIRES</div>
+                <div class="card-holder">09/29</div>
+              </div>
+              <div class="mastercard-logo">
+                <div class="mc-left"></div>
+                <div class="mc-right"></div>
+              </div>
+            </div>
+          </div>
+          <!-- BACK -->
+          <div class="card-face card-back">
+            <div class="mag-stripe"></div>
+            <div class="sig-strip">
+              <div class="sig-lines">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="cvv">•••</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stat pills -->
+      <div class="stat-pill pill-a">
+        <div class="pill-dot green"></div>
+        <div>
+          <div class="pill-lbl">Account Balance</div>
+          <div class="pill-val">$24,850.00</div>
+        </div>
+        <div class="pill-trend up">▲ 3.2%</div>
+      </div>
+
+      <div class="stat-pill pill-b">
+        <div class="pill-dot gold"></div>
+        <div>
+          <div class="pill-lbl">Interest Earned</div>
+          <div class="pill-val">+$184.20</div>
+        </div>
+        <div class="pill-trend up">This month</div>
+      </div>
+
+      <div class="stat-pill pill-c">
+        <div class="pill-dot blue"></div>
+        <div>
+          <div class="pill-lbl">Transfer Sent</div>
+          <div class="pill-val">£2,500.00</div>
+        </div>
+        <div class="pill-trend">to UK ✓</div>
+      </div>
+
+      <!-- globe rings decoration -->
+      <div class="globe-rings">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="globe-dot gd-1"></div>
+        <div class="globe-dot gd-2"></div>
+        <div class="globe-dot gd-3"></div>
+        <div class="globe-dot gd-4"></div>
+        <div class="globe-dot gd-5"></div>
+      </div>
+    </div>
+
+    <!-- trust footer -->
+    <div class="panel-trust">
+      <div class="trust-item"><span>🛡️</span> FDIC Insured</div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><span>🔒</span> 256-bit TLS</div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><span>🏛️</span> FSA Regulated</div>
+    </div>
+  </aside>
+
+  <!-- RIGHT PANEL — form -->
+  <main class="panel-right">
+    <div class="form-container">
+
+      <!-- top nav -->
+      <div class="form-top-nav">
+        <a href="../index.html" class="back-link">← Back to website</a>
+        <span class="need-help"><a href="../contact.html">Need help?</a></span>
+      </div>
+
+      <!-- heading -->
+      <div class="form-header">
+        <h1>Welcome back</h1>
+        <p>Sign in to your VaultGreen account to continue</p>
+      </div>
+
+      <!-- social / biometric login hint -->
+      <div class="quick-access" id="biometricHint">
+        <div class="qa-icon">🔑</div>
+        <span>Use Face ID or fingerprint if available on your device</span>
+      </div>
+
+      <!-- form -->
+      <form id="loginForm" onsubmit="event.preventDefault(); doLogin();" novalidate>
+
+        <div class="field" id="emailField">
+          <label for="email">Email address</label>
+          <div class="input-wrap">
+            <span class="input-icon">✉</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <span class="field-err" id="emailErr"></span>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="password">
+            Password
+            <a href="#" class="forgot-link" onclick="showForgot(event)">Forgot password?</a>
+          </label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Show password" onclick="togglePassword()">👁</button>
+          </div>
+          <span class="field-err" id="passErr"></span>
+        </div>
+
+        <div class="form-row-between">
+          <label class="remember-label">
+            <input type="checkbox" id="remember" />
+            <span class="custom-check"></span>
+            Remember this device
+          </label>
+        </div>
+
+        <!-- error banner -->
+        <div class="error-banner" id="loginError" hidden>
+          <span class="error-icon">⚠</span>
+          <span id="loginErrorMsg">Incorrect email or password. Please try again.</span>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="btnText">Sign in to Online Banking</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+      </form>
+
+      <!-- divider -->
+      <div class="divider"><span>or</span></div>
+
+      <!-- register CTA -->
+      <div class="register-cta">
+        <p>Don't have an account yet?</p>
+        <a href="register.html" class="btn-register">Open a VaultGreen Account →</a>
+      </div>
+
+      <!-- security note -->
+      <div class="security-note">
+        <span>🔒</span>
+        <p>Your connection is secured with 256-bit TLS encryption. VaultGreen will never ask for your full password by phone or email.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FORGOT PASSWORD MODAL -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeForgot()">✕</button>
+      <div class="modal-icon">📧</div>
+      <h3>Reset your password</h3>
+      <p>Enter your registered email and we'll send a secure reset link within 5 minutes.</p>
+      <div class="field" style="margin-top:1.5rem">
+        <label for="resetEmail">Email address</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉</span>
+          <input type="email" id="resetEmail" placeholder="you@example.com"/>
+        </div>
+      </div>
+      <button class="btn-submit" onclick="doReset()" style="margin-top:1rem">
+        <span>Send Reset Link</span>
+        <span class="btn-arrow">→</span>
+      </button>
+      <div id="resetSuccess" hidden style="margin-top:1rem;color:#34d399;font-size:.88rem;text-align:center">
+        ✅ Reset link sent! Check your inbox (and spam folder).
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

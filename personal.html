@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Personal Banking — VaultGreen Bank</title>
+  <meta name="description" content="Personal banking accounts, savings, loans, mortgages, and cards. Open your account today with VaultGreen Bank."/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="hero-badge fade-up">Personal Banking</div>
+    <h1 class="fade-up delay-1">Banking that works <em style="color:var(--gold)">for you</em></h1>
+    <p class="fade-up delay-2">Simple, powerful accounts with no hidden fees. From your first account to your retirement plan, VaultGreen has you covered.</p>
+    <div class="hero-actions fade-up delay-3" style="margin-top:2rem">
+      <a href="#open-account" class="btn-primary">Open an Account →</a>
+      <a href="app/login.html" class="btn-secondary">🔐 Online Banking Login</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTS -->
+<section class="section section-light" id="accounts">
+  <div class="section-header fade-up">
+    <span class="section-label">Accounts</span>
+    <h2 class="section-title">Choose your <em>perfect account</em></h2>
+    <p class="section-desc">All accounts come with free debit cards, online banking, and 24/7 customer support.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-tag">Everyday</div>
+      <div class="product-icon">🏦</div>
+      <h3>Classic Current Account</h3>
+      <p>The smart choice for everyday spending, bills, and salary deposits. No monthly fee.</p>
+      <ul class="product-list">
+        <li>Free Visa debit card</li>
+        <li>Unlimited transactions</li>
+        <li>Instant payment notifications</li>
+        <li>5 free ATM withdrawals/month</li>
+        <li>Overdraft facility available</li>
+        <li>Online & mobile app access</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Classic Current Account')">Open Classic →</button>
+    </div>
+    <div class="product-card featured fade-up delay-1">
+      <div class="product-tag">Best Value</div>
+      <div class="product-icon">💎</div>
+      <h3>Premium Current Account</h3>
+      <p>Everything in Classic plus exclusive perks, travel insurance, and premium support.</p>
+      <ul class="product-list">
+        <li>Free Mastercard Gold card</li>
+        <li>Unlimited free ATM withdrawals</li>
+        <li>Travel & medical insurance</li>
+        <li>Priority customer support</li>
+        <li>Airport lounge access (2/year)</li>
+        <li>Free international transfers (3/month)</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Premium Current Account')">Open Premium →</button>
+    </div>
+    <div class="product-card fade-up delay-2">
+      <div class="product-tag">Youth</div>
+      <div class="product-icon">🌱</div>
+      <h3>Student & Youth Account</h3>
+      <p>For ages 16–25. Build good money habits with tools designed for your life stage.</p>
+      <ul class="product-list">
+        <li>Zero fees, always</li>
+        <li>Budgeting tools built-in</li>
+        <li>Round-up savings feature</li>
+        <li>Student overdraft up to $1,000</li>
+        <li>Exclusive student discounts</li>
+        <li>Upgrade automatically at 26</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Student & Youth Account')">Open Youth →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS -->
+<section class="section" id="savings">
+  <div class="section-header fade-up">
+    <span class="section-label">Savings</span>
+    <h2 class="section-title">Make your money <em>earn more</em></h2>
+    <p class="section-desc">Competitive rates, flexible access, and no minimum balances. Start saving today.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-tag">Instant Access</div>
+      <div class="product-icon">⚡</div>
+      <h3>Easy Saver</h3>
+      <p>Access your money any time with no notice period. Great for emergency funds.</p>
+      <ul class="product-list">
+        <li>3.8% AER / 3.75% gross p.a.</li>
+        <li>Withdraw anytime</li>
+        <li>No minimum balance</li>
+        <li>Automatic interest monthly</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Easy Saver Account')">Open Easy Saver →</button>
+    </div>
+    <div class="product-card featured fade-up delay-1">
+      <div class="product-tag">Highest Rate</div>
+      <div class="product-icon">📈</div>
+      <h3>Fixed-Term Deposit</h3>
+      <p>Lock in your money for 1–5 years and enjoy our best guaranteed rates.</p>
+      <ul class="product-list">
+        <li>Up to 5.2% AER</li>
+        <li>1, 2, 3, or 5-year terms</li>
+        <li>Minimum deposit $500</li>
+        <li>Capital protected, fully insured</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Fixed-Term Deposit')">View Fixed Rates →</button>
+    </div>
+    <div class="product-card fade-up delay-2">
+      <div class="product-tag">Goals</div>
+      <div class="product-icon">🎯</div>
+      <h3>Smart Goals Saver</h3>
+      <p>Set a goal, automate your savings, and watch your progress in real time.</p>
+      <ul class="product-list">
+        <li>4.1% AER while saving</li>
+        <li>Multiple goals simultaneously</li>
+        <li>Round-up from debit card</li>
+        <li>Milestone celebrations & alerts</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Smart Goals Saver')">Set a Goal →</button>
+    </div>
+  </div>
+</section>
+
+<!-- RATES TABLE -->
+<section class="section section-cream">
+  <div class="section-header-center fade-up">
+    <span class="section-label">Savings Rates</span>
+    <h2 class="section-title">Our current <em>interest rates</em></h2>
+  </div>
+  <div class="rates-table-wrap">
+    <table class="rates-table">
+      <thead><tr><th>Product</th><th>AER</th><th>Gross p.a.</th><th>Min. Deposit</th><th>Access</th></tr></thead>
+      <tbody>
+        <tr><td>Easy Saver</td><td class="rate-highlight">3.80%</td><td>3.75%</td><td>$0</td><td>Instant</td></tr>
+        <tr><td>Smart Goals Saver</td><td class="rate-highlight">4.10%</td><td>4.05%</td><td>$0</td><td>On goal completion</td></tr>
+        <tr><td>Fixed-Term 1 Year</td><td class="rate-highlight">4.60%</td><td>4.50%</td><td>$500</td><td>On maturity</td></tr>
+        <tr><td>Fixed-Term 2 Years</td><td class="rate-highlight">4.85%</td><td>4.75%</td><td>$500</td><td>On maturity</td></tr>
+        <tr><td>Fixed-Term 3 Years</td><td class="rate-highlight">5.00%</td><td>4.90%</td><td>$1,000</td><td>On maturity</td></tr>
+        <tr><td>Fixed-Term 5 Years</td><td class="rate-highlight">5.20%</td><td>5.10%</td><td>$1,000</td><td>On maturity</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem;font-size:.8rem;color:var(--text-light)">Rates correct as of January 2025. Subject to change. AER = Annual Equivalent Rate. Deposits are protected up to applicable limits by the FDIC.</p>
+
+  <!-- SAVINGS CALCULATOR -->
+  <div class="calc-card fade-up" style="margin-top:3rem;max-width:560px;margin-left:auto;margin-right:auto">
+    <h3>Savings Calculator</h3>
+    <p style="font-size:.88rem;margin-bottom:1.5rem">See how much your savings could grow.</p>
+    <div class="form-group"><label>Initial Deposit ($)</label><input type="number" id="savAmount" value="5000" min="1"/></div>
+    <div class="form-group">
+      <label>Interest Rate (%)</label>
+      <select id="savRate">
+        <option value="3.8">3.80% — Easy Saver</option>
+        <option value="4.1">4.10% — Smart Goals</option>
+        <option value="4.6">4.60% — Fixed 1 Year</option>
+        <option value="4.85">4.85% — Fixed 2 Years</option>
+        <option value="5.0">5.00% — Fixed 3 Years</option>
+        <option value="5.2" selected>5.20% — Fixed 5 Years</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Term (years)</label><input type="number" id="savYears" value="5" min="1" max="30"/></div>
+    <button class="btn-primary" onclick="calculateSavings()" style="width:100%;justify-content:center">Calculate →</button>
+    <div id="sav-result" class="calc-result" style="display:none;margin-top:1.5rem">
+      <div class="calc-result-row"><span class="calc-result-lbl">Total Balance</span><span class="calc-result-val gold" id="sav-total"></span></div>
+      <div class="calc-result-row"><span class="calc-result-lbl">Interest Earned</span><span class="calc-result-val white" id="sav-interest"></span></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-light);margin-top:.75rem">Illustrative only. Assumes interest compounded annually. Subject to change.</p>
+  </div>
+</section>
+
+<!-- LOANS -->
+<section class="section" id="loans">
+  <div class="section-header fade-up">
+    <span class="section-label">Loans & Credit</span>
+    <h2 class="section-title">Borrow with <em>confidence</em></h2>
+    <p class="section-desc">Flexible lending at competitive rates, with clear terms and no early repayment fees.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-tag">Personal Loan</div>
+      <div class="product-icon">💳</div>
+      <h3>Personal Loan</h3>
+      <p>Borrow $1,000–$100,000 for any purpose. Fast decision, competitive rates.</p>
+      <ul class="product-list">
+        <li>From 6.9% APR representative</li>
+        <li>1–7 year repayment terms</li>
+        <li>Same-day decision</li>
+        <li>No early repayment fee</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('Personal Loan')">Apply Now →</button>
+    </div>
+    <div class="product-card fade-up delay-1">
+      <div class="product-tag">Home</div>
+      <div class="product-icon">🏠</div>
+      <h3>Mortgage</h3>
+      <p>Buy your dream home with flexible mortgage options and expert advisor support.</p>
+      <ul class="product-list">
+        <li>From 4.29% fixed 2-year</li>
+        <li>Up to 95% LTV</li>
+        <li>Free valuation included</li>
+        <li>Dedicated mortgage advisor</li>
+      </ul>
+      <a href="contact.html" class="btn-card">Speak to Advisor →</a>
+    </div>
+    <div class="product-card fade-up delay-2">
+      <div class="product-tag">Credit Card</div>
+      <div class="product-icon">💳</div>
+      <h3>VaultGreen Credit Card</h3>
+      <p>Earn cashback, manage spending, and build your credit score responsibly.</p>
+      <ul class="product-list">
+        <li>Up to 2% cashback</li>
+        <li>0% on purchases for 12 months</li>
+        <li>No foreign transaction fees</li>
+        <li>Real-time spending controls</li>
+      </ul>
+      <button class="btn-card" onclick="openApply('VaultGreen Credit Card')">Apply for Card →</button>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ACCOUNT FORM -->
+<section class="cta-section" id="open-account">
+  <div style="position:relative;z-index:2;width:100%">
+    <div class="fade-up" style="text-align:center;margin-bottom:3rem">
+      <span class="section-label section-label-gold">Open Your Account</span>
+      <h2>Ready to get <em style="color:var(--gold)">started?</em></h2>
+      <p>Open your account in 5 minutes. All you need is a government-issued ID. No branch visits required.</p>
+    </div>
+
+    <!-- APPLICATION FORM -->
+    <div class="apply-card fade-up delay-1" id="applyFormWrap">
+      <h3 id="applyTitle" style="margin-bottom:1.5rem;text-align:center">Classic Current Account Application</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="applyFirst" placeholder="Kwame" required/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="applyLast" placeholder="Asante" required/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="applyEmail" placeholder="you@example.com" required/></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="applyPhone" placeholder="+233 20 000 0000"/></div>
+      <div class="form-row">
+        <div class="form-group"><label>Date of Birth</label><input type="date" id="applyDob" required/></div>
+        <div class="form-group">
+          <label>Country of Residence</label>
+          <select id="applyCountry">
+            <option value="">— Select —</option>
+            <option>Ghana</option><option>Nigeria</option><option>United Kingdom</option>
+            <option>United States</option><option>Canada</option><option>South Africa</option>
+            <option>Kenya</option><option>United Arab Emirates</option><option>Singapore</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Employment Status</label>
+        <select id="applyEmployment">
+          <option value="">— Select —</option>
+          <option>Employed (full-time)</option><option>Employed (part-time)</option>
+          <option>Self-employed / Business owner</option><option>Student</option>
+          <option>Retired</option><option>Unemployed</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1.5rem">
+        <input type="checkbox" id="applyConsent" style="width:auto;margin-top:4px;accent-color:var(--green-mid)"/>
+        <label for="applyConsent" style="font-size:.82rem;color:var(--text-mid)">I confirm I am 18+ years old and agree to VaultGreen Bank's <a href="#" style="color:var(--green-mid)">Terms & Conditions</a> and <a href="#" style="color:var(--green-mid)">Privacy Policy</a>.</label>
+      </div>
+      <button class="btn-primary" id="applyBtn" onclick="submitApplication(document.getElementById('applyTitle').dataset.type||'Classic Current Account')" style="width:100%;justify-content:center">Submit Application →</button>
+      <div style="margin-top:1.5rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
+        <span style="color:rgba(255,255,255,.45);font-size:.83rem">✅ No credit check to open</span>
+        <span style="color:rgba(255,255,255,.45);font-size:.83rem">✅ 5-minute application</span>
+        <span style="color:rgba(255,255,255,.45);font-size:.83rem">✅ FDIC insured</span>
+      </div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="apply-success" style="display:none;max-width:560px;margin:0 auto;background:rgba(14,203,129,.1);border:1px solid rgba(14,203,129,.3);border-radius:20px;padding:3rem;text-align:center">
+      <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+      <h3 style="color:var(--white);margin-bottom:.75rem">Application Received!</h3>
+      <p style="color:rgba(255,255,255,.65);margin-bottom:1.5rem">Thank you! We've received your application and will contact you within 24 hours to complete your account setup.</p>
+      <p style="color:var(--gold);font-size:.9rem;font-weight:600" id="applyRefDisplay"></p>
+      <a href="app/login.html" class="btn-primary" style="margin-top:1.5rem;display:inline-flex">Go to Online Banking →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function openApply(type) {
+  const title  = document.getElementById('applyTitle');
+  title.textContent = type + ' Application';
+  title.dataset.type = type;
+  document.getElementById('open-account').scrollIntoView({ behavior:'smooth' });
+}
+
+// Override submitApplication to show reference
+const _orig = window.submitApplication;
+window.submitApplication = async function(type) {
+  const btn = document.getElementById('applyBtn');
+  const data = {
+    type,
+    firstName:  document.getElementById('applyFirst')?.value.trim(),
+    lastName:   document.getElementById('applyLast')?.value.trim(),
+    email:      document.getElementById('applyEmail')?.value.trim(),
+    phone:      document.getElementById('applyPhone')?.value.trim(),
+    dob:        document.getElementById('applyDob')?.value,
+    country:    document.getElementById('applyCountry')?.value,
+    employment: document.getElementById('applyEmployment')?.value,
+    consent:    document.getElementById('applyConsent')?.checked,
+  };
+  if (!data.firstName || !data.lastName) return showToast('Please enter your full name','error');
+  if (!data.email || !data.email.includes('@')) return showToast('Please enter a valid email','error');
+  if (!data.dob) return showToast('Please enter your date of birth','error');
+  if (!data.consent) return showToast('Please accept the terms','error');
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-spinner"></span>Submitting…';
+
+  const API = 'https://ttb-x042.onrender.com';
+  try {
+    const res  = await fetch(`${API}/api/public/apply`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+    const json = await res.json();
+    const ref  = json.reference || ('VG-' + Date.now().toString(36).toUpperCase());
+    document.getElementById('applyRefDisplay').textContent = 'Your reference: ' + ref;
+  } catch {}
+
+  document.getElementById('apply-success').style.display = 'block';
+  document.getElementById('applyFormWrap').style.display  = 'none';
+  document.getElementById('apply-success').scrollIntoView({ behavior:'smooth' });
+};
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

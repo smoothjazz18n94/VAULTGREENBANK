@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact Us — VaultGreen Bank</title>
+  <meta name="description" content="Get in touch with VaultGreen Bank 24/7 by phone, email, live chat, or visit one of our international branches."/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="hero-badge fade-up">Contact Us</div>
+    <h1 class="fade-up delay-1">We're here to <em style="color:var(--gold)">help</em></h1>
+    <p class="fade-up delay-2">Whether you're a new customer or have been with us for years, our team is available 24/7 to support you.</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="contact-grid">
+
+    <!-- LEFT: Info -->
+    <div class="contact-methods fade-left">
+      <h2 class="section-title" style="margin-bottom:2rem">Get in <em>touch</em></h2>
+      <div class="contact-method">
+        <div class="contact-method-icon">📞</div>
+        <div>
+          <h4>Telephone</h4>
+          <p>+1 (800) 482-5836</p>
+          <small>Personal: Mon–Fri 8am–10pm, Sat–Sun 9am–6pm<br>Business: 24/7</small>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <p>support@vaultgreenbank.com</p>
+          <small>We respond within 4 business hours.</small>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">💬</div>
+        <div>
+          <h4>Live Chat</h4>
+          <p>Available right now</p>
+          <small>Click the chat bubble ↘ for instant support. 24/7 AI-assisted with human escalation any time.</small><br>
+          <a href="app/login.html" style="color:var(--green-mid);font-size:.875rem;font-weight:500;margin-top:.5rem;display:inline-block">Open Online Banking →</a>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">📍</div>
+        <div>
+          <h4>Head Office</h4>
+          <p>14 Liberation Road, Accra, Ghana</p>
+          <small>Mon–Fri: 8:30am – 5:00pm GMT</small>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">🚨</div>
+        <div>
+          <h4>Lost or Stolen Card</h4>
+          <p style="color:#e05252;font-weight:600">+1 (800) 482-0000</p>
+          <small>Available 24/7. Also freeze your card instantly in the app.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="contact-form-card fade-right">
+      <h3 style="margin-bottom:.4rem">Send us a message</h3>
+      <p style="font-size:.9rem;margin-bottom:1.75rem">Fill in the form and we'll respond within 4 hours.</p>
+
+      <form id="contactForm" onsubmit="event.preventDefault();submitContactForm()">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" id="firstName" placeholder="Kwame" required/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" id="lastName" placeholder="Asante" required/></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" placeholder="kwame@example.com" required/></div>
+        <div class="form-group"><label>Phone Number <em>(optional)</em></label><input type="tel" id="contactPhone" placeholder="+233 20 000 0000"/></div>
+        <div class="form-group">
+          <label>Enquiry Type</label>
+          <select id="accountType">
+            <option value="">— Select one —</option>
+            <option>I'm a new customer</option>
+            <option>Personal Banking</option>
+            <option>Business Banking</option>
+            <option>International Transfers</option>
+            <option>Loans & Mortgages</option>
+            <option>Investments</option>
+            <option>Complaint or Issue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="contactMessage" placeholder="Describe what you need help with…" required></textarea></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1.5rem">
+          <input type="checkbox" id="consent" style="width:auto;margin-top:4px;accent-color:var(--green-mid)"/>
+          <label for="consent" style="font-size:.8rem;color:var(--text-light)">I agree to VaultGreen Bank contacting me about this enquiry. View our <a href="#" style="color:var(--green-mid)">Privacy Policy</a>.</label>
+        </div>
+        <button type="submit" class="btn-primary" id="contactSubmitBtn" style="width:100%;justify-content:center">Send Message →</button>
+        <div id="form-success" style="display:none;margin-top:1.25rem;background:rgba(26,92,56,.08);border:1px solid var(--green-light);border-radius:10px;padding:1rem;color:var(--green-mid);font-weight:500;text-align:center">
+          ✅ Thank you! We'll be in touch within 4 hours.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="section">
+  <div class="section-header fade-up">
+    <span class="section-label">Our Locations</span>
+    <h2 class="section-title">Visit us <em>worldwide</em></h2>
+    <p class="section-desc">With offices across 4 continents, there's always a VaultGreen team near you.</p>
+  </div>
+  <div class="branches-grid">
+    <div class="branch-card fade-up"><div class="branch-flag">🇬🇭</div><div><h4>Accra (HQ)</h4><p>14 Liberation Road, Accra, Ghana</p><div class="branch-hours">Mon–Fri: 8:30am – 5:00pm</div></div></div>
+    <div class="branch-card fade-up delay-1"><div class="branch-flag">🇬🇧</div><div><h4>London</h4><p>25 Finsbury Square, EC2A 1AG</p><div class="branch-hours">Mon–Fri: 9:00am – 5:30pm</div></div></div>
+    <div class="branch-card fade-up delay-2"><div class="branch-flag">🇺🇸</div><div><h4>New York</h4><p>350 Fifth Avenue, Suite 4200, NY</p><div class="branch-hours">Mon–Fri: 9:00am – 6:00pm EST</div></div></div>
+    <div class="branch-card fade-up delay-3"><div class="branch-flag">🇦🇪</div><div><h4>Dubai</h4><p>DIFC Gate Building, Level 4</p><div class="branch-hours">Sun–Thu: 9:00am – 5:00pm GST</div></div></div>
+    <div class="branch-card fade-up delay-1"><div class="branch-flag">🇳🇬</div><div><h4>Lagos</h4><p>Plot 12, Adeola Odeku St, V/I</p><div class="branch-hours">Mon–Fri: 8:00am – 4:00pm</div></div></div>
+    <div class="branch-card fade-up delay-2"><div class="branch-flag">🇸🇬</div><div><h4>Singapore</h4><p>1 Raffles Quay, #20-01, 048583</p><div class="branch-hours">Mon–Fri: 9:00am – 5:30pm SGT</div></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-cream">
+  <div class="section-header-center fade-up">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Common <em>questions</em></h2>
+  </div>
+  <div class="faq-list" id="faq-list"></div>
+</section>
+
+<section class="cta-section">
+  <div style="position:relative;z-index:2" class="fade-up">
+    <span class="section-label section-label-gold">Ready to Bank Better?</span>
+    <h2>Open your account <em style="color:var(--gold)">today</em></h2>
+    <p>5 minutes is all it takes. No paperwork, no queues, no nonsense.</p>
+    <div class="cta-actions">
+      <a href="personal.html#open-account" class="btn-primary">Open an Account →</a>
+      <a href="app/login.html" class="btn-secondary">Online Banking Login</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const FAQS = [
+  { q:"How do I open an account?", a:"You can open an account entirely online in under 5 minutes. Click 'Open an Account', provide your government-issued ID, and complete our quick identity verification process. No branch visits required." },
+  { q:"Is my money protected?", a:"Yes. All eligible deposits are insured by the FDIC up to applicable limits. We also hold a full banking license regulated by the Financial Services Authority. Your money is always protected." },
+  { q:"How do I send money internationally?", a:"Log into your Online Banking account, select 'International Transfer', enter the recipient's details and amount. Transfers to most countries are processed within the same business day at live mid-market exchange rates." },
+  { q:"What currencies do you support?", a:"We support 30+ currencies including USD, EUR, GBP, GHS, NGN, AED, JPY, CAD, AUD, SGD, ZAR, INR and more. Multi-currency accounts are available on Premium and Business Pro plans." },
+  { q:"How do I report a lost or stolen card?", a:"Call our emergency line at +1 (800) 482-0000 available 24/7, or instantly freeze your card in the Online Banking app under Card Settings → Freeze Card. Freezing is immediate and free." },
+  { q:"Can businesses open accounts?", a:"Absolutely. We offer a full range of business accounts for sole traders, SMEs, and large corporations. Visit our Business Banking page or contact us to speak with an advisor." },
+  { q:"How long does account opening take?", a:"Most accounts are opened and active within 5–10 minutes online. Identity verification is instant in most cases. Complex applications (e.g. Corporate Banking) may take 1–2 business days." },
+  { q:"What are your savings interest rates?", a:"Our Easy Saver pays 3.8% AER. Fixed-Term deposits range from 4.6% (1-year) up to 5.2% APY (5-year). All rates are correct and updated monthly — view our full rates table on the Personal Banking page." },
+];
+</script>
+<script src="shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  buildFaq(FAQS, 'faq-list');
+});
+</script>
+</body>
+</html>

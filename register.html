@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Open an Account — VaultGreen Bank</title>
+  <meta name="description" content="Open a VaultGreen Bank account in 5 minutes. No branch visits, no paperwork. FDIC insured, FSA regulated."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="register.css"/>
+</head>
+<body>
+
+  <!-- LEFT PANEL -->
+  <aside class="panel-left">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <!-- brand -->
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">V</div>
+      <div>
+        <span class="brand-name">VaultGreen Bank</span>
+        <span class="brand-tag">International Banking Group</span>
+      </div>
+    </a>
+
+    <!-- pitch -->
+    <div class="panel-pitch">
+      <h2>Join <em>2.4 million</em> customers banking smarter</h2>
+      <p>Open your account in under 5 minutes. No paperwork, no branch visits, no hidden fees.</p>
+
+      <div class="pitch-perks">
+        <div class="perk">
+          <div class="perk-icon">⚡</div>
+          <div>
+            <strong>5-minute application</strong>
+            <span>Complete entirely online</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🛡️</div>
+          <div>
+            <strong>FDIC Insured</strong>
+            <span>Your deposits are protected</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🌍</div>
+          <div>
+            <strong>48 countries</strong>
+            <span>Bank wherever you are</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">💰</div>
+          <div>
+            <strong>Up to 5.2% APY</strong>
+            <span>On savings accounts</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">📱</div>
+          <div>
+            <strong>Digital-first</strong>
+            <span>Manage everything online</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">📞</div>
+          <div>
+            <strong>24/7 support</strong>
+            <span>Real humans available always</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- mini testimonial -->
+      <div class="panel-quote">
+        <div class="quote-stars">★★★★★</div>
+        <p class="quote-text">"Opened my account in 4 minutes flat. Best banking decision I've ever made."</p>
+        <div class="quote-author">
+          <div class="quote-avatar">K</div>
+          <div>
+            <strong>Kwame A.</strong>
+            <span>Premium Account holder, Accra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-trust">
+      <div class="trust-item"><span>🛡️</span> FDIC Insured</div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><span>🔒</span> 256-bit TLS</div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><span>🏛️</span> FSA Regulated</div>
+    </div>
+  </aside>
+
+  <!-- RIGHT PANEL -->
+  <main class="panel-right">
+    <div class="form-container">
+
+      <div class="form-top-nav">
+        <a href="../index.html" class="back-link">← Back to website</a>
+        <span class="login-link">Already have an account? <a href="login.html">Sign in</a></span>
+      </div>
+
+      <!-- STEP INDICATOR -->
+      <div class="steps-bar">
+        <div class="step active" id="step-ind-1">
+          <div class="step-circle">1</div>
+          <span>Account type</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-ind-2">
+          <div class="step-circle">2</div>
+          <span>Personal info</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-ind-3">
+          <div class="step-circle">3</div>
+          <span>Security</span>
+        </div>
+      </div>
+
+      <!-- ═══ STEP 1: Account type ═══ -->
+      <div class="step-content" id="step1">
+        <div class="form-header">
+          <h1>Choose your account</h1>
+          <p>Select the account type that's right for you. You can always upgrade later.</p>
+        </div>
+
+        <div class="account-options">
+          <label class="account-option selected" data-val="Classic Current Account">
+            <input type="radio" name="accountType" value="Classic Current Account" checked/>
+            <div class="ao-radio"></div>
+            <div class="ao-icon">🏦</div>
+            <div class="ao-info">
+              <strong>Classic Current</strong>
+              <span>Free everyday banking · No monthly fee</span>
+            </div>
+            <div class="ao-tag">Free</div>
+          </label>
+
+          <label class="account-option" data-val="Premium Current Account">
+            <input type="radio" name="accountType" value="Premium Current Account"/>
+            <div class="ao-radio"></div>
+            <div class="ao-icon">💎</div>
+            <div class="ao-info">
+              <strong>Premium Current</strong>
+              <span>Travel insurance · Airport lounges · Gold card</span>
+            </div>
+            <div class="ao-tag popular">Popular</div>
+          </label>
+
+          <label class="account-option" data-val="Easy Saver Account">
+            <input type="radio" name="accountType" value="Easy Saver Account"/>
+            <div class="ao-radio"></div>
+            <div class="ao-icon">💰</div>
+            <div class="ao-info">
+              <strong>Easy Saver</strong>
+              <span>3.8% AER · Instant access · No minimum</span>
+            </div>
+            <div class="ao-tag">3.8% AER</div>
+          </label>
+
+          <label class="account-option" data-val="Fixed-Term Deposit">
+            <input type="radio" name="accountType" value="Fixed-Term Deposit"/>
+            <div class="ao-radio"></div>
+            <div class="ao-icon">📈</div>
+            <div class="ao-info">
+              <strong>Fixed-Term Deposit</strong>
+              <span>Up to 5.2% APY · 1–5 year terms</span>
+            </div>
+            <div class="ao-tag best">5.2% APY</div>
+          </label>
+
+          <label class="account-option" data-val="Student & Youth Account">
+            <input type="radio" name="accountType" value="Student & Youth Account"/>
+            <div class="ao-radio"></div>
+            <div class="ao-icon">🌱</div>
+            <div class="ao-info">
+              <strong>Student & Youth</strong>
+              <span>Ages 16–25 · Zero fees · Overdraft available</span>
+            </div>
+            <div class="ao-tag">Free</div>
+          </label>
+        </div>
+
+        <button class="btn-next" onclick="goStep(2)">
+          Continue <span>→</span>
+        </button>
+      </div>
+
+      <!-- ═══ STEP 2: Personal info ═══ -->
+      <div class="step-content hidden" id="step2">
+        <div class="form-header">
+          <h1>Personal details</h1>
+          <p>We need a few details to set up your account securely.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>First Name</label>
+            <div class="input-wrap"><input type="text" id="firstName" placeholder="Kwame" autocomplete="given-name" required/></div>
+            <span class="field-err" id="firstErr"></span>
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <div class="input-wrap"><input type="text" id="lastName" placeholder="Asante" autocomplete="family-name" required/></div>
+            <span class="field-err" id="lastErr"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <div class="input-wrap">
+            <span class="input-icon">✉</span>
+            <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" required/>
+          </div>
+          <span class="field-err" id="emailErr"></span>
+        </div>
+
+        <div class="field">
+          <label>Phone Number</label>
+          <div class="input-wrap">
+            <span class="input-icon">📞</span>
+            <input type="tel" id="regPhone" placeholder="+233 20 000 0000" autocomplete="tel"/>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Date of Birth</label>
+            <div class="input-wrap"><input type="date" id="dob" required/></div>
+            <span class="field-err" id="dobErr"></span>
+          </div>
+          <div class="field">
+            <label>Country of Residence</label>
+            <div class="input-wrap select-wrap">
+              <select id="country">
+                <option value="">— Select —</option>
+                <option>Ghana</option>
+                <option>Nigeria</option>
+                <option>United Kingdom</option>
+                <option>United States</option>
+                <option>Canada</option>
+                <option>South Africa</option>
+                <option>Kenya</option>
+                <option>United Arab Emirates</option>
+                <option>Singapore</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Employment Status</label>
+          <div class="input-wrap select-wrap">
+            <select id="employment">
+              <option value="">— Select —</option>
+              <option>Employed (full-time)</option>
+              <option>Employed (part-time)</option>
+              <option>Self-employed / Business owner</option>
+              <option>Student</option>
+              <option>Retired</option>
+              <option>Unemployed / Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="step-btns">
+          <button class="btn-back" onclick="goStep(1)">← Back</button>
+          <button class="btn-next" onclick="validateStep2()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ═══ STEP 3: Security / Password ═══ -->
+      <div class="step-content hidden" id="step3">
+        <div class="form-header">
+          <h1>Create your password</h1>
+          <p>Choose a strong password to protect your account.</p>
+        </div>
+
+        <div class="field">
+          <label>Full Name <span style="font-weight:400;color:var(--text3)">(as it will appear on your account)</span></label>
+          <div class="input-wrap"><input type="text" id="displayName" placeholder="Kwame Asante" autocomplete="name"/></div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="regPassword" placeholder="Min. 8 characters" autocomplete="new-password" required oninput="checkStrength()"/>
+            <button type="button" class="toggle-pw" onclick="toggleRegPw()" aria-label="Show password">👁</button>
+          </div>
+          <!-- Strength bar -->
+          <div class="strength-track">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <span class="strength-label" id="strengthLabel">Enter a password</span>
+          <span class="field-err" id="pwErr"></span>
+        </div>
+
+        <div class="field">
+          <label>Confirm Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="regPasswordConfirm" placeholder="Re-enter password" autocomplete="new-password" required/>
+          </div>
+          <span class="field-err" id="pwConfirmErr"></span>
+        </div>
+
+        <div class="consent-block">
+          <label class="consent-row">
+            <input type="checkbox" id="termsConsent"/>
+            <span class="c-check"></span>
+            <span>I agree to VaultGreen Bank's <a href="../privacy.html" target="_blank">Terms & Conditions</a> and <a href="../privacy.html" target="_blank">Privacy Policy</a>.</span>
+          </label>
+          <label class="consent-row">
+            <input type="checkbox" id="marketingConsent"/>
+            <span class="c-check"></span>
+            <span>I'd like to receive product updates and offers by email (optional).</span>
+          </label>
+        </div>
+
+        <!-- Error banner -->
+        <div class="error-banner" id="regError" hidden>
+          <span class="error-icon">⚠</span>
+          <span id="regErrorMsg">Something went wrong. Please try again.</span>
+        </div>
+
+        <div class="step-btns">
+          <button class="btn-back" onclick="goStep(2)">← Back</button>
+          <button class="btn-submit" id="regSubmitBtn" onclick="doRegister()">
+            <span id="regBtnText">Open My Account</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <div class="security-note" style="margin-top:1.25rem">
+          <span>🔒</span>
+          <p>Your information is encrypted and never shared with third parties. VaultGreen is FSA regulated and FDIC member insured.</p>
+        </div>
+      </div>
+
+      <!-- ═══ SUCCESS ═══ -->
+      <div class="step-content hidden" id="stepSuccess">
+        <div class="success-screen">
+          <div class="success-anim">
+            <div class="success-circle">
+              <span class="success-check">✓</span>
+            </div>
+          </div>
+          <h1>Account created! 🎉</h1>
+          <p>Welcome to VaultGreen Bank. Your account is ready to use.</p>
+          <div class="success-details" id="successDetails"></div>
+          <a href="login.html" class="btn-next" style="display:inline-flex;align-items:center;gap:8px;margin-top:1.5rem;text-decoration:none">
+            Sign in to Online Banking →
+          </a>
+          <p style="margin-top:1rem;font-size:.82rem;color:var(--text3)">Check your email for a welcome message and account details.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="register.js"></script>
+</body>
+</html>
