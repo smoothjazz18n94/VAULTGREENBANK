@@ -7,8 +7,8 @@
 const BANK = {
   name:    "VaultGreen",
   tagline: "Bank of Trust",
-  app:     "app/login.html",
-  register:"app/register.html",
+  app:     "login.html",
+  register:"register.html",
   api:     "https://ttb-x042.onrender.com",   // ← your Render backend
 };
 
