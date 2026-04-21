@@ -48,10 +48,15 @@ async function loadUserStatus() {
   }
 
   // BLOCK FEATURES IF NOT APPROVED
-  if (status !== "approved") {
-    document.getElementById("createCardBtn").disabled = true;
-    document.getElementById("vaCreateForm").style.opacity = "0.4";
-  }
+  //if (status !== "approved") {
+  //const btn = document.getElementById("createCardBtn");
+
+  //btn.disabled = false; // keep clickable
+  //btn.onclick = () => {
+  //  alert("You must complete KYC before creating cards.");
+   // switchTab("accounts", document.querySelector('[onclick*="accounts"]'));
+ // };
+//}
 }
 
 /* ───────── CARDS ───────── */
