@@ -713,3 +713,33 @@ body.light .top-nav { background:rgba(240,242,248,0.92); }
   .kyc-step-item span { display:none; }
   .tab-panel { margin:0 12px 32px; }
 }
+
+.bank-card {
+  width: 320px;
+  height: 190px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0b1f3a, #123b6d);
+  color: white;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.card-number {
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 25px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
