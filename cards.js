@@ -1,9 +1,11 @@
 const BASE = "https://ttb-x042.onrender.com";
 const token = localStorage.getItem("token");
 
+/* ───────── STATE ───────── */
 let cards = [];
 let virtualAccounts = [];
 let balanceVisible = {};
+let activeCardIdx = 0; // ✅ FIX: missing variable
 
 /* ───────── AUTH GUARD ───────── */
 if (!token) {
@@ -20,7 +22,7 @@ async function init() {
   setAvatar();
 }
 
-/* ───────── USER STATUS (KYC CHECK) ───────── */
+/* ───────── USER STATUS (KYC) ───────── */
 async function loadUserStatus() {
   const res = await fetch(`${BASE}/api/auth/me`, {
     headers: { Authorization: `Bearer ${token}` }
@@ -28,13 +30,14 @@ async function loadUserStatus() {
 
   if (!res.ok) return;
 
-  const data = await res.json();
-  const user = data.user;
+  const { user } = await res.json();
 
   const status = user.kycStatus || "none";
 
   const dot = document.getElementById("kycDot");
   const label = document.getElementById("kycLabel");
+
+  if (!dot || !label) return;
 
   if (status === "approved") {
     dot.className = "kyc-dot verified";
@@ -46,17 +49,6 @@ async function loadUserStatus() {
     dot.className = "kyc-dot";
     label.textContent = "KYC Not Verified";
   }
-
-  // BLOCK FEATURES IF NOT APPROVED
-  //if (status !== "approved") {
-  //const btn = document.getElementById("createCardBtn");
-
-  //btn.disabled = false; // keep clickable
-  //btn.onclick = () => {
-  //  alert("You must complete KYC before creating cards.");
-   // switchTab("accounts", document.querySelector('[onclick*="accounts"]'));
- // };
-//}
 }
 
 /* ───────── CARDS ───────── */
@@ -88,14 +80,30 @@ function renderCards() {
     const el = document.createElement("div");
     el.className = "bank-card";
 
+    const last4 = card.cardNumber?.slice(-4) || "0000";
     const visible = balanceVisible[i];
 
     el.innerHTML = `
-      <h3>**** **** **** ${card.cardNumber?.slice(-4) || "0000"}</h3>
+      <div class="card-header">
+        <div class="bank-name">VAULTGREEN BANK</div>
+        <div class="card-chip">◉◉</div>
+      </div>
 
-      <div>
-        ${visible ? `₵${card.balance}` : "₵••••••"}
-        <button onclick="toggleBalance(${i})">👁</button>
+      <div class="card-number">
+        **** **** **** ${last4}
+      </div>
+
+      <div class="card-bottom">
+        <div>
+          <small>Balance</small>
+          <div class="balance">
+            ${visible ? `₵ ${card.balance.toFixed(2)}` : "₵ ••••••"}
+          </div>
+        </div>
+
+        <button class="eye-btn" onclick="toggleBalance(${i})">
+          ${visible ? "🙈" : "👁"}
+        </button>
       </div>
     `;
 
@@ -106,6 +114,42 @@ function renderCards() {
 function toggleBalance(i) {
   balanceVisible[i] = !balanceVisible[i];
   renderCards();
+}
+
+/* ───────── CREATE CARD ───────── */
+async function createCard() {
+  const res = await fetch(`${BASE}/api/cards/create`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` }
+  });
+
+  if (!res.ok) {
+    alert("KYC required or failed to create card.");
+    return;
+  }
+
+  await loadCards();
+}
+
+/* ───────── CVV REVEAL ───────── */
+function revealCvv() {
+  if (!cards.length) return alert("No card available");
+
+  const card = cards[activeCardIdx] || cards[0];
+
+  const modal = document.getElementById("cvvModal");
+  const display = document.getElementById("cvvDisplay");
+
+  display.textContent = card.cvv || "•••";
+  modal.style.display = "flex";
+
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 10000);
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
 }
 
 /* ───────── VIRTUAL ACCOUNTS ───────── */
@@ -139,23 +183,14 @@ function renderVA() {
 
     el.innerHTML = `
       <h4>${va.name}</h4>
-      <p>₵${va.balance}</p>
+      <p>₵ ${va.balance.toFixed(2)}</p>
     `;
 
     grid.appendChild(el);
   });
 }
 
-/* ───────── ACCOUNT FUNCTIONS (PLACEHOLDERS) ───────── */
-async function createCard() {
-  const res = await fetch(`${BASE}/api/cards/create`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}` }
-  });
-
-  await loadCards();
-}
-
+/* ───────── CREATE VA ───────── */
 async function createVirtualAccount() {
   const name = document.getElementById("vaName").value;
 
@@ -171,26 +206,34 @@ async function createVirtualAccount() {
   await loadVirtualAccounts();
 }
 
-/* ───────── UI ───────── */
+/* ───────── TAB SWITCH ───────── */
 function switchTab(name, btn) {
   document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
-  document.querySelector(`#panel-${name}`).classList.remove("hidden");
+  document.getElementById(`panel-${name}`).classList.remove("hidden");
 
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   btn.classList.add("active");
 }
 
+/* ───────── AVATAR ───────── */
 function setAvatar() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const el = document.getElementById("navAvatar");
 
-  if (user.name) {
-    el.textContent = user.name.split(" ").map(n => n[0]).join("").slice(0, 2);
+  if (user.name && el) {
+    el.textContent = user.name
+      .split(" ")
+      .map(n => n[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase();
   }
 }
 
-/* expose */
+/* ───────── GLOBAL EXPORTS ───────── */
 window.switchTab = switchTab;
 window.toggleBalance = toggleBalance;
 window.createCard = createCard;
 window.createVirtualAccount = createVirtualAccount;
+window.revealCvv = revealCvv;
+window.closeModal = closeModal;
