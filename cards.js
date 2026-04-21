@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   VAULTGREEN — cards.js (FRONTEND)
-   FIXED + FULL PRODUCTION VERSION
+   VAULTGREEN — cards.js (FRONTEND CLEAN)
+   Stable Production Version
 ══════════════════════════════════════ */
 
 const BASE = "https://ttb-x042.onrender.com";
@@ -11,7 +11,6 @@ const token = localStorage.getItem("token");
 ───────────────────────────── */
 let cards = [];
 let virtualAccounts = [];
-let activeCardIdx = 0;
 let balanceVisible = {};
 
 /* ─────────────────────────────
@@ -28,17 +27,17 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   try {
-    await loadKycStatus();
     await loadCards();
     await loadVirtualAccounts();
     setAvatar();
   } catch (err) {
     console.error("INIT ERROR:", err);
+    showToast("Failed to load dashboard data");
   }
 }
 
 /* ─────────────────────────────
-   TAB SWITCH (FIX FOR YOUR ERROR)
+   TAB SWITCH
 ───────────────────────────── */
 function switchTab(name, btn) {
   document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
@@ -50,42 +49,7 @@ function switchTab(name, btn) {
   if (btn) btn.classList.add("active");
 }
 
-/* ─────────────────────────────
-   KYC
-───────────────────────────── */
-async function loadKycStatus() {
-  try {
-    const res = await fetch(`${BASE}/api/auth/me`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-
-    if (!res.ok) return;
-
-    const data = await res.json();
-    const user = data.user;
-
-    const status = user.kycStatus || "none";
-
-    const dot = document.getElementById("kycDot");
-    const label = document.getElementById("kycLabel");
-
-    if (!dot || !label) return;
-
-    if (status === "approved") {
-      dot.className = "kyc-dot verified";
-      label.textContent = "KYC Verified";
-    } else if (status === "pending") {
-      dot.className = "kyc-dot pending";
-      label.textContent = "KYC Pending";
-    } else {
-      dot.className = "kyc-dot";
-      label.textContent = "KYC Not Started";
-    }
-
-  } catch (err) {
-    console.error("KYC ERROR:", err);
-  }
-}
+window.switchTab = switchTab;
 
 /* ─────────────────────────────
    CARDS
@@ -93,17 +57,21 @@ async function loadKycStatus() {
 async function loadCards() {
   try {
     const res = await fetch(`${BASE}/api/cards`, {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
 
-    if (!res.ok) return;
+    if (!res.ok) throw new Error("Failed to load cards");
 
     const data = await res.json();
     cards = data.cards || [];
 
     renderCards();
+
   } catch (err) {
     console.error("CARDS ERROR:", err);
+    showToast("Could not load cards");
   }
 }
 
@@ -126,11 +94,12 @@ function renderCards() {
     const el = document.createElement("div");
     el.className = "bank-card";
 
+    const last4 = card.cardNumber?.slice(-4) || "0000";
     const visible = balanceVisible[i] || false;
 
     el.innerHTML = `
       <div class="card-top">
-        <h3>**** **** **** ${card.last4 || "0000"}</h3>
+        <h3>**** **** **** ${last4}</h3>
       </div>
 
       <div class="card-balance">
@@ -138,6 +107,10 @@ function renderCards() {
         <button onclick="toggleBalance(${i})">
           ${visible ? "🙈" : "👁"}
         </button>
+      </div>
+
+      <div class="card-status">
+        ${card.isActive ? "Active" : "Frozen"}
       </div>
     `;
 
@@ -150,21 +123,79 @@ function toggleBalance(i) {
   renderCards();
 }
 
+window.toggleBalance = toggleBalance;
+
+/* ─────────────────────────────
+   CREATE CARD
+───────────────────────────── */
+async function createCard() {
+  try {
+    const res = await fetch(`${BASE}/api/cards/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    if (!res.ok) throw new Error("Card creation failed");
+
+    const data = await res.json();
+
+    showToast("Card created successfully");
+    await loadCards();
+
+  } catch (err) {
+    console.error(err);
+    showToast("Failed to create card");
+  }
+}
+
+window.createCard = createCard;
+
+/* ─────────────────────────────
+   TOGGLE CARD STATUS
+───────────────────────────── */
+async function toggleCard(cardId) {
+  try {
+    const res = await fetch(`${BASE}/api/cards/${cardId}/toggle`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    if (!res.ok) throw new Error("Toggle failed");
+
+    await loadCards();
+    showToast("Card updated");
+
+  } catch (err) {
+    console.error(err);
+    showToast("Failed to update card");
+  }
+}
+
+window.toggleCard = toggleCard;
+
 /* ─────────────────────────────
    VIRTUAL ACCOUNTS
 ───────────────────────────── */
 async function loadVirtualAccounts() {
   try {
     const res = await fetch(`${BASE}/api/virtual-accounts`, {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
 
-    if (!res.ok) return;
+    if (!res.ok) throw new Error("Failed to load accounts");
 
     const data = await res.json();
     virtualAccounts = data.accounts || [];
 
     renderVA();
+
   } catch (err) {
     console.error("VA ERROR:", err);
   }
@@ -199,7 +230,7 @@ function renderVA() {
 }
 
 /* ─────────────────────────────
-   USER AVATAR
+   AVATAR
 ───────────────────────────── */
 function setAvatar() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -216,7 +247,16 @@ function setAvatar() {
 }
 
 /* ─────────────────────────────
-   GLOBAL FUNCTIONS (HTML CALLS)
+   TOAST
 ───────────────────────────── */
-window.switchTab = switchTab;
-window.toggleBalance = toggleBalance;
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = msg;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
